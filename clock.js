@@ -14,6 +14,16 @@ function getTime(){
         }:${
             secs < 10 ? `0${secs}` : secs
         }`;
+    
+    if(hours > 5 && hours < 12){
+        clockTitle.setAttribute("data-time", "morning");
+    } else if(hours >= 12 && hours < 18){
+        clockTitle.setAttribute("data-time", "afternoon");
+    } else if(hours >= 18 && hours < 21){
+        clockTitle.setAttribute("data-time", "evening");
+    } else {
+        clockTitle.setAttribute("data-time", "night");
+    }
 }
 
 function init(){

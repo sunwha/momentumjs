@@ -7,8 +7,7 @@ const IMG_NUMBER = 3;
 function paintImage(imgNumber){
   const image = new Image();
   image.src = `/images/${imgNumber+1}.jpg`;
-  // image.classList.add("bgImage");
-  wrapper.style.backgroundImage = image.src;
+  wrapper.style.backgroundImage = `url(${image.src})`;
 }
 
 function genRandom(){
@@ -16,9 +15,17 @@ function genRandom(){
   return number;
 }
 
+function setWindowSize(){
+  let docHeight = document.documentElement.clientHeight;
+  wrapper.style.height = `${docHeight}px`;
+}
+
 function init(){
-   const randomNumber = genRandom();
-   paintImage(randomNumber);
+  window.addEventListener("resize", setWindowSize);
+  wrapper.style.height = `${document.documentElement.clientHeight}px`;
+
+  const randomNumber = genRandom();
+  paintImage(randomNumber); 
 }
 
 init();
