@@ -17,7 +17,11 @@ function genRandom(){
 
 function setWindowSize(){
   let docHeight = document.documentElement.clientHeight;
-  wrapper.style.height = `${docHeight}px`;
+  if(docHeight < 500){
+    wrapper.style.height = `500px`;
+  } else {
+    wrapper.style.height = `${docHeight}px`;
+  }
 }
 
 function init(){
